@@ -25,7 +25,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="16">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -42,6 +42,14 @@
       <AssemblyReference>System.Xaml</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="stateMachineFlowChart" sap:VirtualizedContainerService.HintSize="634,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -77,7 +85,7 @@
             <av:PointCollection x:Key="ConnectorLocation">330,36.1 486.7,36.1 486.7,49.3333333333333</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <State x:Name="__ReferenceID2" DisplayName="Random Number" sap:VirtualizedContainerService.HintSize="134,61.3333333333333" sap2010:WorkflowViewState.IdRef="State_2">
+        <State x:Name="__ReferenceID2" DisplayName="Random Number" sap:VirtualizedContainerService.HintSize="380.666666666667,479.333333333333" sap2010:WorkflowViewState.IdRef="State_2">
           <State.Entry>
             <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_1">
               <Assign.To>
@@ -96,7 +104,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <State.Exit>
-            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_5" Text="[&quot;Random Number Generated&quot;+RandomNumber.ToString]" />
+            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_5" Text="[&quot;Random Number Generated&quot;]" />
           </State.Exit>
           <State.Transitions>
             <Transition DisplayName="T2" sap:VirtualizedContainerService.HintSize="451.333333333333,521.333333333333" sap2010:WorkflowViewState.IdRef="Transition_3">
@@ -108,7 +116,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <Transition.To>
-                <State x:Name="__ReferenceID0" DisplayName="Guess Number" sap:VirtualizedContainerService.HintSize="380.666666666667,672.666666666667" sap2010:WorkflowViewState.IdRef="State_1">
+                <State x:Name="__ReferenceID0" DisplayName="Guess Number" sap:VirtualizedContainerService.HintSize="134,61.3333333333333" sap2010:WorkflowViewState.IdRef="State_1">
                   <State.Entry>
                     <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,244.666666666667" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Guess a Number" Title="Enter a Number">
                       <ui:InputDialog.Result>
@@ -139,7 +147,7 @@
                         <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Try smaller number&quot;]" />
                       </Transition.Action>
                       <Transition.Condition>
-                        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="GuessNumber&gt;RandomNumber" />
+                        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="GuessNumber&gt;RandomNumber" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
                       </Transition.Condition>
                     </Transition>
                     <Transition DisplayName="Try Greater" sap:VirtualizedContainerService.HintSize="451.333333333333,521.333333333333" sap2010:WorkflowViewState.IdRef="Transition_2">
@@ -157,7 +165,7 @@
                         <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Try Greater&quot;]" />
                       </Transition.Action>
                       <Transition.Condition>
-                        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="GuessNumber &lt; RandomNumber" />
+                        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="GuessNumber &lt; RandomNumber" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_2" />
                       </Transition.Condition>
                     </Transition>
                     <Transition DisplayName="GuessNumberCorrect" sap:VirtualizedContainerService.HintSize="451.333333333333,521.333333333333" sap2010:WorkflowViewState.IdRef="Transition_4">
@@ -169,7 +177,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <Transition.Condition>
-                        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="GuessNumber=RandomNumber" />
+                        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="GuessNumber=RandomNumber" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_3" />
                       </Transition.Condition>
                       <Transition.To>
                         <State x:Name="__ReferenceID1" DisplayName="Final State" sap:VirtualizedContainerService.HintSize="134,61.3333333333333" sap2010:WorkflowViewState.IdRef="State_3" IsFinal="True">
